@@ -10,10 +10,15 @@
   <main class="app">
     <section class="panel" aria-live="polite">
       <header class="panel-header">
-        <div class="logo"><img src="./assets/logo-symbol.svg" alt="" class="logo-symbol"><span class="logo-text">ScopeMate</span></div>
-      <button class="copy-btn" id="copyBtn" type="button" aria-label="결과 복사">
+        <div class="logo">
+          <img src="./assets/logo-symbol.svg" alt="" class="logo-symbol">
+          <span class="logo-text">ScopeMate</span>
+        </div>
+
+        <button class="copy-btn" id="copyBtn" type="button" aria-label="결과 복사">
           <img src="./assets/copy_btn.svg" alt="" />
-        </button><span class="copy-toast" id="copyToast">복사 완료</span>
+        </button>
+        <span class="copy-toast" id="copyToast">복사 완료</span>
       </header>
 
       <div class="panel-body">
@@ -46,12 +51,13 @@
           </div>
 
           <div class="direction-area">
-<button class="direction-btn" id="resultBackBtn" type="button" aria-label="이전">
-  <span>‹</span>
-</button>
-<button class="direction-btn" type="button" aria-label="다음" disabled>
-  <span>›</span>
-</button>
+            <button class="direction-btn" id="prevBtn" type="button" aria-label="이전" disabled>
+              <span>‹</span>
+            </button>
+
+            <button class="direction-btn" id="nextBtn" type="button" aria-label="다음" disabled>
+              <span>›</span>
+            </button>
           </div>
         </section>
 
@@ -62,12 +68,13 @@
           </div>
 
           <div class="direction-area">
-<button class="direction-btn" id="resultBackBtn" type="button" aria-label="이전">
-  <span>‹</span>
-</button>
-<button class="direction-btn" type="button" aria-label="다음" disabled>
-  <span>›</span>
-</button>
+            <button class="direction-btn" id="loadingBackBtn" type="button" aria-label="이전">
+              <span>‹</span>
+            </button>
+
+            <button class="direction-btn" type="button" aria-label="다음" disabled>
+              <span>›</span>
+            </button>
           </div>
         </section>
 
@@ -96,12 +103,13 @@
 
           <div class="result-footer">
             <div class="direction-area result-direction">
-<button class="direction-btn" id="resultBackBtn" type="button" aria-label="이전">
-  <span>‹</span>
-</button>
-<button class="direction-btn" type="button" aria-label="다음" disabled>
-  <span>›</span>
-</button>
+              <button class="direction-btn" id="resultBackBtn" type="button" aria-label="이전">
+                <span>‹</span>
+              </button>
+
+              <button class="direction-btn" type="button" aria-label="다음" disabled>
+                <span>›</span>
+              </button>
             </div>
 
             <button class="cta-btn restart-btn" id="restartBtn" type="button">
