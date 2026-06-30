@@ -658,3 +658,6 @@ body.is-result .copy-btn {
 body.is-copied .copy-toast {
   opacity: 1;
 }
+.direction-btn span {
+    transform: translateY(-1.5px);
+}
