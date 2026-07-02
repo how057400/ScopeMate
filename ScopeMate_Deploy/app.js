@@ -45,6 +45,15 @@ const questions = [
     ]
   },
   {
+    id: "contentLevel",
+    title: "콘텐츠 제작 수준은 어느 정도인가요?",
+    options: [
+      { label: "기존 콘텐츠 활용", value: "reuse", factor: "기존 콘텐츠 활용", hours: 0, risk: 0 },
+      { label: "일부 그래픽 제작", badge: "아이콘 · 간단한 그래픽", value: "graphic", factor: "일부 그래픽 제작", hours: 8, risk: 1 },
+      { label: "신규 비주얼 제작", badge: "일러스트 · 3D · 모션", value: "visual", factor: "신규 비주얼 제작", hours: 24, risk: 2 }
+    ]
+  },
+  {
     id: "handoff",
     title: "개발 전달용 가이드가 필요한가요?",
     options: [
@@ -84,6 +93,7 @@ const loadingMessages = [
   "프로젝트를 분석하고 있습니다.",
   "페이지 구성을 검토하고 있습니다.",
   "인터랙션 난이도를 계산하고 있습니다.",
+  "콘텐츠 제작 범위를 확인하고 있습니다.",
   "CMS 적용 여부를 확인하고 있습니다.",
   "개발 전달 범위를 확인하고 있습니다.",
   "예상 공수를 산정하고 있습니다."
@@ -203,12 +213,7 @@ function calculate() {
     }
   });
 
-  // MVP estimate model:
-  // Uses additive effort instead of multipliers to avoid excessive inflation
-  // when responsive, CMS, interaction, and handoff are all selected.
   const center = Math.max(6, Math.round(total));
-
-  // Range width expands slightly as risk increases.
   const rangeRate = risk >= 7 ? 0.18 : risk >= 3 ? 0.16 : 0.14;
   const minHours = Math.max(6, roundTo(center * (1 - rangeRate), 6));
   const maxHours = Math.max(minHours + 6, roundTo(center * (1 + rangeRate), 6));
@@ -229,12 +234,11 @@ function commentFor(level) {
   }
 
   if (level === "medium") {
-    return "반응형과 인터랙션이 포함되어\n기본 작업보다 공수가 증가합니다.";
+    return "반응형, 콘텐츠 제작 또는 인터랙션 요소로 인해\n기본 작업보다 공수가 증가합니다.";
   }
 
-  return "작업 범위가 크고 운영 대응 요소가 많아 공수 변동 가능성이 높습니다.\n초기 일정 산정 시 20-30% 이상의 버퍼를 확보하는 것을 권장합니다.";
+  return "작업 범위가 크고 제작 요소가 많아 공수 변동 가능성이 높습니다.\n초기 일정 산정 시 20-30% 이상의 버퍼를 확보하는 것을 권장합니다.";
 }
-
 
 function shuffleMessages(messages) {
   return [...messages].sort(() => Math.random() - 0.5);
@@ -324,8 +328,6 @@ function restart() {
   setScreen("intro");
 }
 
-
-
 function getCopyText() {
   return [
     "[ScopeMate 공수 계산 결과]",
@@ -366,6 +368,7 @@ nextBtn.addEventListener("click", goNext);
 prevBtn.addEventListener("click", goPrev);
 restartBtn.addEventListener("click", restart);
 copyBtn?.addEventListener("click", copyResult);
+
 resultBackBtn.addEventListener("click", () => {
   current = questions.length - 1;
   renderQuestion();
