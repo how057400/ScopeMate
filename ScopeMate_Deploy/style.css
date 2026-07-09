@@ -202,7 +202,7 @@ button {
   background: var(--cta-bg);
   font-size: 22px;
   line-height: 1;
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: -0.045em;
   cursor: pointer;
   transition: transform var(--ease), opacity var(--ease);
@@ -250,7 +250,7 @@ button {
   color: var(--text-main);
   font-size: 26px;
   line-height: 1.24;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: -0.045em;
 }
 
@@ -272,7 +272,7 @@ button {
   color: var(--text-sub);
   font-size: 26px;
   line-height: 1;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: -0.04em;
   cursor: pointer;
   transition: color var(--ease);
@@ -402,7 +402,7 @@ button {
   margin: 28px 0 0;
   font-size: 16px;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: -0.03em;
 }
 
@@ -426,7 +426,7 @@ button {
   color: var(--text-main);
   font-size: 16px;
   line-height: 1.2;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.035em;
 }
 
@@ -435,7 +435,7 @@ button {
   color: var(--text-main);
   font-size: 24px;
   line-height: 1.2;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: -0.045em;
 }
 
@@ -452,7 +452,7 @@ button {
   color: var(--text-main);
   font-size: 20px;
   line-height: 1.42;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -0.045em;
   word-break: keep-all;
 }
@@ -547,7 +547,7 @@ flex:0 0 auto;
 .logo-text{
 font-family:"SUIT","Pretendard",sans-serif;
 font-size:18px;
-font-weight:400;
+font-weight:600;
 line-height:1;
 color:#FFFFFF;
 }
@@ -662,4 +662,8 @@ body.is-copied .copy-toast {
   display: block;
   line-height: 1;
   transform: translateY(-1.5px);
+}
+
+.option.is-selected .option-label {
+  font-weight:700;
 }
